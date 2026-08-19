@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_generate_coa_wizard_form" model="ir.ui.view">
+        <field name="name">account.coa.generate.wizard.form</field>
+        <field name="model">account.coa.generate.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Chart of Accounts">
+
+                <!-- ══ Step 1 ══ -->
+                <group string="⚙️  Step 1 — Choose Business Model">
+                    <group>
+                        <field name="business_type" widget="radio"/>
+                    </group>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="use_arabic_names"/>
+                        <field name="replace_existing"/>
+                    </group>
+                </group>
+
+                <!-- Replace warning (shown before preview is loaded) -->
+                <div class="alert alert-warning mb-3"
+                     invisible="not replace_existing or preview_loaded">
+                    <strong>⚠️  Replace mode is ON.</strong>
+                    Click <em>Load Preview</em> to see exactly what will be removed
+                    and what will be created before anything changes.
+                </div>
+
+                <!-- Load button -->
+                <div class="o_row mb-3" invisible="preview_loaded">
+                    <button name="action_load_preview"
+                            type="object"
+                            string="📋  Load Preview"
+                            class="btn btn-primary"/>
+                </div>
+
+                <!-- ══ Step 2 ══ -->
+                <group string="📊  Step 2 — Review" invisible="not preview_loaded">
+
+                    <!-- What will be REMOVED -->
+                    <div class="alert alert-danger py-2 px-3 mb-3"
+                         invisible="not replace_existing or (not count_will_delete and not count_will_deprecate)">
+                        <strong>🗑️  Old chart of accounts — will be replaced:</strong>
+                        <ul class="mb-0 mt-1">
+                            <li invisible="not count_will_delete">
+                                <strong><field name="count_will_delete" nolabel="1"/></strong>
+                                accounts with no entries → <strong>permanently deleted</strong>
+                            </li>
+                            <li invisible="not count_will_deprecate">
+                                <strong><field name="count_will_deprecate" nolabel="1"/></strong>
+                                accounts with journal history → <strong>Archived</strong>
+                                (history kept, hidden from new entries)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- What will be CREATED -->
+                    <div class="o_row mb-2">
+                        <span class="badge bg-success me-2">
+                            <field name="count_new" nolabel="1"/> new accounts
+                        </span>
+                        <span class="badge bg-warning text-dark me-2"
+                              invisible="not count_adjusted">
+                            <field name="count_adjusted" nolabel="1"/> code auto-adjusted
+                        </span>
+                        <span class="badge bg-secondary me-2">
+                            <field name="count_total" nolabel="1"/> total accounts
+                        </span>
+                        <span class="badge bg-info ms-1">
+                            <field name="count_groups" nolabel="1"/> account groups
+                        </span>
+                    </div>
+
+                    <div class="alert alert-info py-1 px-2 mb-2"
+                         invisible="not count_adjusted">
+                        <i class="fa fa-info-circle me-1"/>
+                        Some template codes match deprecated accounts that keep their
+                        code — a unique suffix (A, B …) was added automatically.
+                    </div>
+
+                    <!-- New accounts list -->
+                    <field name="preview_ids" nolabel="1">
+                        <list string="Accounts to Create" editable="bottom"
+                              decoration-warning="status == 'adjusted'">
+                            <field name="selected" width="36px"/>
+                            <field name="original_code" string="Template Code" width="100px" optional="show"/>
+                            <field name="code" string="Code" width="100px"/>
+                            <field name="name"/>
+                            <field name="name_ar" optional="show"/>
+                            <field name="account_type"/>
+                            <field name="status"
+                                   decoration-success="status == 'new'"
+                                   decoration-warning="status == 'adjusted'"
+                                   widget="badge"/>
+                        </list>
+                    </field>
+
+                    <div class="o_row mt-2">
+                        <button name="action_load_preview"
+                                type="object"
+                                string="🔄 Reload Preview"
+                                class="btn btn-outline-secondary btn-sm"/>
+                    </div>
+                </group>
+
+                <field name="preview_loaded" invisible="1"/>
+                <field name="count_will_delete" invisible="1"/>
+                <field name="count_will_deprecate" invisible="1"/>
+                <field name="count_groups" invisible="1"/>
+
+                <footer>
+                    <!-- Destructive confirm button when replacing -->
+                    <button name="action_generate"
+                            type="object"
+                            string="⚠️  Replace &amp; Generate"
+                            class="btn btn-danger"
+                            invisible="not preview_loaded or not replace_existing"
+                            confirm="This will DELETE unused accounts and DEPRECATE accounts with history, then create the new chart. Are you sure?"/>
+                    <!-- Normal create button when not replacing -->
+                    <button name="action_generate"
+                            type="object"
+                            string="✅  Generate Accounts"
+                            class="btn btn-primary"
+                            invisible="not preview_loaded or replace_existing"/>
+                    <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_generate_coa_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Chart of Accounts</field>
+        <field name="res_model">account.coa.generate.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

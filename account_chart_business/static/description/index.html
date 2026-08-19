@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     HERO BANNER
+══════════════════════════════════════════════════════════════════ -->
+<section class="oe_container" style="background:linear-gradient(135deg,#1a5276 0%,#2980b9 60%,#27ae60 100%);padding:60px 40px;text-align:center;border-radius:8px;margin-bottom:0;">
+    <div style="display:inline-flex;align-items:center;gap:24px;margin-bottom:24px;">
+        <img src="icon.png"
+             style="width:96px;height:96px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.3);border:3px solid rgba(255,255,255,0.4);"
+             alt="CoA Generator"/>
+        <div style="text-align:left;">
+            <h1 style="color:#fff;margin:0;font-size:36px;font-weight:700;letter-spacing:-0.5px;">
+                Chart of Accounts Generator
+            </h1>
+            <p style="color:rgba(255,255,255,0.85);margin:6px 0 0;font-size:18px;">
+                دليل الحسابات حسب طبيعة النشاط التجاري
+            </p>
+        </div>
+    </div>
+    <p style="color:rgba(255,255,255,0.9);font-size:17px;max-width:700px;margin:0 auto;line-height:1.7;">
+        Generate a complete, structured Chart of Accounts in <strong style="color:#f9e64f;">one click</strong>.<br/>
+        Choose your business model and get all account codes, names, types and
+        account groups — pre-configured and ready to use.
+    </p>
+    <div style="display:flex;justify-content:center;gap:16px;margin-top:28px;flex-wrap:wrap;">
+        <span style="background:rgba(255,255,255,0.2);color:#fff;padding:8px 20px;border-radius:20px;font-size:14px;font-weight:600;">✓ 6 Business Types</span>
+        <span style="background:rgba(255,255,255,0.2);color:#fff;padding:8px 20px;border-radius:20px;font-size:14px;font-weight:600;">✓ 263 Template Accounts</span>
+        <span style="background:rgba(255,255,255,0.2);color:#fff;padding:8px 20px;border-radius:20px;font-size:14px;font-weight:600;">✓ Auto Account Groups</span>
+        <span style="background:rgba(255,255,255,0.2);color:#fff;padding:8px 20px;border-radius:20px;font-size:14px;font-weight:600;">✓ English &amp; Arabic Names</span>
+        <span style="background:rgba(255,255,255,0.2);color:#fff;padding:8px 20px;border-radius:20px;font-size:14px;font-weight:600;">✓ Odoo 19 Ready</span>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SCREENSHOT 1 — Choose Business Model
+══════════════════════════════════════════════════════════════════ -->
+<section class="oe_container oe_dark" style="padding:50px 40px;">
+    <div class="oe_row oe_spaced" style="display:flex;align-items:center;gap:48px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:280px;">
+            <h2 style="color:#1a5276;font-size:28px;margin-top:0;">
+                🏗️ Choose Your Business Model
+            </h2>
+            <p style="color:#555;font-size:16px;line-height:1.7;">
+                Select the type of business from six pre-built templates.
+                The wizard immediately shows a full preview of every account
+                that will be created — before anything is changed.
+            </p>
+            <ul style="color:#555;font-size:15px;line-height:2.0;padding-left:20px;">
+                <li><strong>Construction &amp; Contracting</strong> — WIP, retentions, subcontractors</li>
+                <li><strong>Real Estate &amp; Rent</strong> — investment properties, tenant deposits</li>
+                <li><strong>Trading &amp; Retail</strong> — inventory, POS, trade payables</li>
+                <li><strong>Manufacturing</strong> — raw materials, WIP, factory overhead</li>
+                <li><strong>Professional Services</strong> — unbilled revenue, retainers</li>
+                <li><strong>Restaurant &amp; F&amp;B</strong> — food cost, aggregator commissions</li>
+            </ul>
+        </div>
+        <div style="flex:1.4;min-width:320px;">
+            <img src="screenshot_01_wizard_step1.png"
+                 style="width:100%;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.15);border:1px solid #ddd;"
+                 alt="Wizard Step 1 — Choose Business Model"/>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SCREENSHOT 2 — Preview before generating
+══════════════════════════════════════════════════════════════════ -->
+<section class="oe_container" style="padding:50px 40px;background:#fff;">
+    <div class="oe_row oe_spaced" style="display:flex;align-items:center;gap:48px;flex-wrap:wrap;">
+        <div style="flex:1.4;min-width:320px;">
+            <img src="screenshot_02_preview.png"
+                 style="width:100%;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.15);border:1px solid #ddd;"
+                 alt="Preview — accounts to be created"/>
+        </div>
+        <div style="flex:1;min-width:280px;">
+            <h2 style="color:#1a5276;font-size:28px;margin-top:0;">
+                📋 Preview Before You Commit
+            </h2>
+            <p style="color:#555;font-size:16px;line-height:1.7;">
+                Click <strong>Load Preview</strong> to see the full list of accounts
+                before anything is created or deleted. The wizard tells you exactly:
+            </p>
+            <div style="background:#fff3cd;border-left:4px solid #ffc107;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0;">
+                <strong style="color:#856404;">⚠️ Replace mode</strong>
+                <ul style="margin:8px 0 0;padding-left:18px;color:#856404;line-height:1.8;font-size:14px;">
+                    <li>How many accounts will be <strong>permanently deleted</strong> (no entries)</li>
+                    <li>How many accounts will be <strong>archived</strong> (have journal history)</li>
+                    <li>How many <strong>new accounts</strong> will be created</li>
+                    <li>How many <strong>account groups</strong> will be set up</li>
+                </ul>
+            </div>
+            <p style="color:#555;font-size:15px;line-height:1.7;">
+                Code conflicts are handled automatically — if an existing archived
+                account already uses the same code, a unique suffix (A, B, …) is
+                added and flagged in the preview.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SCREENSHOT 3 — Generated accounts list
+══════════════════════════════════════════════════════════════════ -->
+<section class="oe_container oe_dark" style="padding:50px 40px;">
+    <div class="oe_row oe_spaced" style="display:flex;align-items:center;gap:48px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:280px;">
+            <h2 style="color:#1a5276;font-size:28px;margin-top:0;">
+                📊 Your New Chart of Accounts
+            </h2>
+            <p style="color:#555;font-size:16px;line-height:1.7;">
+                After clicking <strong>Replace &amp; Generate</strong>, Odoo opens the
+                freshly created accounts — already grouped, typed and sorted
+                by the standard Gulf numbering scheme.
+            </p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
+                <div style="background:#e8f5e9;border-radius:8px;padding:14px;text-align:center;">
+                    <div style="font-size:28px;font-weight:700;color:#2e7d32;">1xxx</div>
+                    <div style="font-size:13px;color:#555;margin-top:4px;">Assets / الأصول</div>
+                </div>
+                <div style="background:#fce4ec;border-radius:8px;padding:14px;text-align:center;">
+                    <div style="font-size:28px;font-weight:700;color:#c62828;">2xxx</div>
+                    <div style="font-size:13px;color:#555;margin-top:4px;">Liabilities / الخصوم</div>
+                </div>
+                <div style="background:#fff3e0;border-radius:8px;padding:14px;text-align:center;">
+                    <div style="font-size:28px;font-weight:700;color:#e65100;">3xxx</div>
+                    <div style="font-size:13px;color:#555;margin-top:4px;">Equity / حقوق الملكية</div>
+                </div>
+                <div style="background:#e8f5e9;border-radius:8px;padding:14px;text-align:center;">
+                    <div style="font-size:28px;font-weight:700;color:#1b5e20;">4xxx</div>
+                    <div style="font-size:13px;color:#555;margin-top:4px;">Revenue / الإيرادات</div>
+                </div>
+                <div style="background:#fce4ec;border-radius:8px;padding:14px;text-align:center;">
+                    <div style="font-size:28px;font-weight:700;color:#b71c1c;">5xxx</div>
+                    <div style="font-size:13px;color:#555;margin-top:4px;">Cost of Revenue</div>
+                </div>
+                <div style="background:#fce4ec;border-radius:8px;padding:14px;text-align:center;">
+                    <div style="font-size:28px;font-weight:700;color:#b71c1c;">6xxx</div>
+                    <div style="font-size:13px;color:#555;margin-top:4px;">Expenses / المصروفات</div>
+                </div>
+            </div>
+        </div>
+        <div style="flex:1.4;min-width:320px;">
+            <img src="screenshot_03_accounts_list.png"
+                 style="width:100%;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.15);border:1px solid #ddd;"
+                 alt="Generated Chart of Accounts list"/>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SCREENSHOT 4 — Account Groups
+══════════════════════════════════════════════════════════════════ -->
+<section class="oe_container" style="padding:50px 40px;background:#fff;">
+    <div class="oe_row oe_spaced" style="display:flex;align-items:center;gap:48px;flex-wrap:wrap;">
+        <div style="flex:1.4;min-width:320px;">
+            <img src="screenshot_04_groups.png"
+                 style="width:100%;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.15);border:1px solid #ddd;"
+                 alt="Account Groups hierarchy"/>
+        </div>
+        <div style="flex:1;min-width:280px;">
+            <h2 style="color:#1a5276;font-size:28px;margin-top:0;">
+                🗂️ Automatic Account Groups
+            </h2>
+            <p style="color:#555;font-size:16px;line-height:1.7;">
+                Account groups are created automatically alongside the accounts —
+                giving you a clean two-level hierarchy for financial reports
+                right from the start.
+            </p>
+            <ul style="color:#555;font-size:15px;line-height:2.0;padding-left:20px;">
+                <li><strong>Level 1</strong> — single-digit prefix (<code>1</code>, <code>2</code> … <code>6</code>)<br/>
+                    Assets, Liabilities, Equity, Revenue, Cost, Expenses</li>
+                <li><strong>Level 2</strong> — two-digit prefix (<code>11</code>, <code>12</code> … <code>64</code>)<br/>
+                    Business-specific sub-categories that match the actual account code ranges</li>
+            </ul>
+            <div style="background:#e3f2fd;border-radius:8px;padding:14px 18px;margin-top:16px;">
+                <strong style="color:#1565c0;">💡 Odoo auto-assigns parents</strong><br/>
+                <span style="color:#555;font-size:14px;">
+                    Group <code>11</code> automatically becomes a child of <code>1</code> —
+                    no manual linking needed.
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SCREENSHOT 5 — 6 Business Types overview card
+══════════════════════════════════════════════════════════════════ -->
+<section class="oe_container oe_dark" style="padding:50px 40px;">
+    <h2 style="text-align:center;color:#1a5276;font-size:30px;margin-top:0;">
+        6 Business Types — All Industries Covered
+    </h2>
+    <p style="text-align:center;color:#666;font-size:16px;max-width:680px;margin:0 auto 36px;">
+        Each template is tailored for its sector with the right account structure,
+        names (English + Arabic), account types, and reconcile settings.
+    </p>
+    <img src="screenshot_05_overview.png"
+         style="width:100%;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.15);border:1px solid #ddd;"
+         alt="All 6 business types overview"/>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     FEATURES GRID
+══════════════════════════════════════════════════════════════════ -->
+<section class="oe_container" style="padding:50px 40px;background:#fff;">
+    <h2 style="text-align:center;color:#1a5276;font-size:30px;margin-top:0;">Why CoA Generator?</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px;">
+
+        <div style="background:#f0f7ff;border-radius:10px;padding:24px;border-top:4px solid #2980b9;">
+            <div style="font-size:36px;margin-bottom:12px;">⚡</div>
+            <h3 style="color:#1a5276;margin:0 0 10px;font-size:17px;">One-Click Setup</h3>
+            <p style="color:#555;font-size:14px;line-height:1.6;margin:0;">
+                Go from an empty database to a fully structured chart of accounts
+                in under 30 seconds. No manual coding, no spreadsheets.
+            </p>
+        </div>
+
+        <div style="background:#f0fff4;border-radius:10px;padding:24px;border-top:4px solid #27ae60;">
+            <div style="font-size:36px;margin-bottom:12px;">🌐</div>
+            <h3 style="color:#1a5276;margin:0 0 10px;font-size:17px;">Bilingual — EN &amp; AR</h3>
+            <p style="color:#555;font-size:14px;line-height:1.6;margin:0;">
+                Every account has both an English and an Arabic name. Toggle
+                <em>Use Arabic Names</em> to generate the chart in Arabic instantly.
+            </p>
+        </div>
+
+        <div style="background:#fff8f0;border-radius:10px;padding:24px;border-top:4px solid #e67e22;">
+            <div style="font-size:36px;margin-bottom:12px;">🔄</div>
+            <h3 style="color:#1a5276;margin:0 0 10px;font-size:17px;">Safe Replace Mode</h3>
+            <p style="color:#555;font-size:14px;line-height:1.6;margin:0;">
+                Switching from one CoA to another? The wizard deletes unused accounts,
+                archives accounts with journal history, and creates the new chart cleanly.
+            </p>
+        </div>
+
+        <div style="background:#fff0f0;border-radius:10px;padding:24px;border-top:4px solid #e74c3c;">
+            <div style="font-size:36px;margin-bottom:12px;">🔢</div>
+            <h3 style="color:#1a5276;margin:0 0 10px;font-size:17px;">Unique Code Safety</h3>
+            <p style="color:#555;font-size:14px;line-height:1.6;margin:0;">
+                Duplicate codes are detected automatically. A unique suffix (A, B …)
+                is added and flagged in the preview — no manual intervention needed.
+            </p>
+        </div>
+
+        <div style="background:#f5f0ff;border-radius:10px;padding:24px;border-top:4px solid #8e44ad;">
+            <div style="font-size:36px;margin-bottom:12px;">🗂️</div>
+            <h3 style="color:#1a5276;margin:0 0 10px;font-size:17px;">Account Groups Built-in</h3>
+            <p style="color:#555;font-size:14px;line-height:1.6;margin:0;">
+                Level-1 and level-2 account groups are created automatically,
+                so your financial reports are correctly structured from day one.
+            </p>
+        </div>
+
+        <div style="background:#f0fff4;border-radius:10px;padding:24px;border-top:4px solid #16a085;">
+            <div style="font-size:36px;margin-bottom:12px;">🛠️</div>
+            <h3 style="color:#1a5276;margin:0 0 10px;font-size:17px;">Fully Customisable</h3>
+            <p style="color:#555;font-size:14px;line-height:1.6;margin:0;">
+                Edit the template accounts from <em>Configuration → Account Templates</em>
+                before generating — add, remove, or rename to fit your exact needs.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     TECHNICAL SPECS
+══════════════════════════════════════════════════════════════════ -->
+<section class="oe_container oe_dark" style="padding:40px;border-radius:0 0 8px 8px;">
+    <h2 style="text-align:center;color:#1a5276;font-size:24px;margin-top:0;">Technical Details</h2>
+    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:24px;">
+        <div style="text-align:center;">
+            <div style="font-size:32px;font-weight:700;color:#2980b9;">263</div>
+            <div style="font-size:13px;color:#777;">Template Accounts</div>
+        </div>
+        <div style="text-align:center;">
+            <div style="font-size:32px;font-weight:700;color:#27ae60;">6</div>
+            <div style="font-size:13px;color:#777;">Business Types</div>
+        </div>
+        <div style="text-align:center;">
+            <div style="font-size:32px;font-weight:700;color:#e67e22;">28</div>
+            <div style="font-size:13px;color:#777;">Max Groups (Construction)</div>
+        </div>
+        <div style="text-align:center;">
+            <div style="font-size:32px;font-weight:700;color:#8e44ad;">18</div>
+            <div style="font-size:13px;color:#777;">Odoo Account Types</div>
+        </div>
+        <div style="text-align:center;">
+            <div style="font-size:32px;font-weight:700;color:#e74c3c;">19</div>
+            <div style="font-size:13px;color:#777;">Odoo Version</div>
+        </div>
+    </div>
+    <p style="text-align:center;color:#888;font-size:13px;margin-top:28px;">
+        Depends: <code>account</code> &nbsp;|&nbsp;
+        License: LGPL-3 &nbsp;|&nbsp;
+        Author: <a href="https://leapai.ai" style="color:#2980b9;">leapai.ai</a>
+    </p>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ── Template list view ── -->
+    <record id="view_coa_template_list" model="ir.ui.view">
+        <field name="name">account.coa.template.list</field>
+        <field name="model">account.coa.template</field>
+        <field name="arch" type="xml">
+            <list string="CoA Templates" default_order="business_type,sequence,code"
+                  decoration-info="account_type in ('asset_cash','asset_current','asset_receivable','asset_fixed','asset_non_current','asset_prepayments')"
+                  decoration-success="account_type in ('income','income_other')"
+                  decoration-danger="account_type in ('expense','expense_direct_cost','expense_depreciation')"
+                  decoration-warning="account_type in ('equity','equity_unaffected')"
+                  decoration-muted="account_type in ('liability_current','liability_non_current','liability_payable','liability_credit_card')">
+                <field name="business_type" widget="badge" optional="show"/>
+                <field name="code" string="Code"/>
+                <field name="name" string="Name (EN)"/>
+                <field name="name_ar" string="الاسم عربي" optional="show"/>
+                <field name="account_type" string="Type"/>
+                <field name="reconcile" optional="show"/>
+                <field name="note" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── Template form view ── -->
+    <record id="view_coa_template_form" model="ir.ui.view">
+        <field name="name">account.coa.template.form</field>
+        <field name="model">account.coa.template</field>
+        <field name="arch" type="xml">
+            <form string="CoA Template Account">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="business_type"/>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="account_type"/>
+                            <field name="reconcile"/>
+                        </group>
+                    </group>
+                    <group string="Names">
+                        <field name="name" string="English Name"/>
+                        <field name="name_ar" string="Arabic Name / الاسم بالعربية"/>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Search view ── -->
+    <record id="view_coa_template_search" model="ir.ui.view">
+        <field name="name">account.coa.template.search</field>
+        <field name="model">account.coa.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="name_ar"/>
+                <filter string="Construction"           name="construction"  domain="[('business_type','=','construction')]"/>
+                <filter string="Real Estate / Rent"     name="real_estate"   domain="[('business_type','=','real_estate')]"/>
+                <filter string="Trading / Retail"       name="trading"       domain="[('business_type','=','trading')]"/>
+                <filter string="Manufacturing"          name="manufacturing" domain="[('business_type','=','manufacturing')]"/>
+                <filter string="Services"               name="services"      domain="[('business_type','=','services')]"/>
+                <filter string="Restaurant"             name="restaurant"    domain="[('business_type','=','restaurant')]"/>
+                <separator/>
+                <filter string="Assets"      name="assets"  domain="[('account_type','like','asset')]"/>
+                <filter string="Liabilities" name="liab"    domain="[('account_type','like','liability')]"/>
+                <filter string="Equity"      name="equity"  domain="[('account_type','like','equity')]"/>
+                <filter string="Income"      name="income"  domain="[('account_type','like','income')]"/>
+                <filter string="Expenses"    name="expense" domain="[('account_type','like','expense')]"/>
+                <separator/>
+                <filter string="Group: Business Type" name="grp_business" context="{'group_by': 'business_type'}"/>
+                <filter string="Group: Account Type"  name="grp_actype"   context="{'group_by': 'account_type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ── Action: list of all templates ── -->
+    <record id="action_coa_templates" model="ir.actions.act_window">
+        <field name="name">CoA Templates</field>
+        <field name="res_model">account.coa.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_coa_template_search"/>
+        <field name="context">{'search_default_grp_business': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No templates found</p>
+            <p>Templates are loaded when the module is installed.</p>
+        </field>
+    </record>
+
+</odoo>

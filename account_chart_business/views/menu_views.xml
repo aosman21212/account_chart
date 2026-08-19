@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ── App root (home screen icon) ── -->
+    <menuitem id="menu_coa_root"
+              name="CoA Generator"
+              web_icon="account_chart_business,static/description/icon.png"
+              sequence="80"/>
+
+    <!-- ── Generate wizard ── -->
+    <menuitem id="menu_coa_generate"
+              name="Generate Chart of Accounts"
+              parent="menu_coa_root"
+              action="action_generate_coa_wizard"
+              sequence="10"/>
+
+    <!-- ── Configuration ── -->
+    <menuitem id="menu_coa_config"
+              name="Configuration"
+              parent="menu_coa_root"
+              sequence="90"/>
+
+    <menuitem id="menu_coa_templates"
+              name="Account Templates"
+              parent="menu_coa_config"
+              action="action_coa_templates"
+              sequence="10"/>
+
+</odoo>

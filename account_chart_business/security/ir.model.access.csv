@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_coa_template_manager,account.coa.template.manager,model_account_coa_template,account.group_account_manager,1,1,1,1
+access_coa_template_user,account.coa.template.user,model_account_coa_template,account.group_account_user,1,0,0,0
+access_coa_wizard_user,account.coa.wizard.user,model_account_coa_generate_wizard,account.group_account_manager,1,1,1,1
+access_coa_wizard_line_user,account.coa.wizard.line.user,model_account_coa_wizard_line,account.group_account_manager,1,1,1,1
